@@ -11,14 +11,14 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "https://askmypdff.vercel.app/", // Replace with your web page origin
+    origin: "https://askmypdff.vercel.app", // Replace with your web page origin
     methods: "GET,POST,PUT,DELETE", // Allowed HTTP methods
     credentials: true, // Allow cookies (if applicable)
   })
 );
 
 app.use("/", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://askmypdff.vercel.app/");
+  res.header("Access-Control-Allow-Origin", "https://askmypdff.vercel.app");
   res.header("Access-Control-Allow-Methods", "GET, POST");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
