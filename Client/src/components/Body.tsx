@@ -39,8 +39,7 @@ const Body: FC<BodyProps> = ({}) => {
         <h1 className="pb-5 text-2xl font-semibold lg:text-4xl">
           Chat with PDF
         </h1>
-
-        <form className="flex flex-col items-start w-full gap-2 pb-8">
+        <form>
           <label className="text-xs lg:text-sm" htmlFor="askk">
             Upload your PDF
           </label>
