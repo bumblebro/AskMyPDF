@@ -62,14 +62,14 @@ const Body: FC<BodyProps> = ({}) => {
           </label>
           <label className="flex items-center justify-center w-full p-6 transition-all border-2 border-gray-200 border-dashed rounded-md appearance-none cursor-pointer hover:border-primary-300">
             <div className="space-y-1 text-center">
-              <div className="inline-flex items-center justify-center w-10 h-10 mx-auto bg-gray-100 rounded-full">
+              <div className="inline-flex items-center justify-center w-10 h-10 mx-auto bg-gray-500 rounded-full">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
+                  fill="#6a7280"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6 text-gray-500"
+                  className="w-6 h-6 text-gray-500 bg-gray-500"
                 >
                   <path
                     stroke-linecap="round"
