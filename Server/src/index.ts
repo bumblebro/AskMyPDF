@@ -50,3 +50,7 @@ app.get("/home", (req, res) => {
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
+
+// "script": "npx tsc",
+//  "start": "node dist/index.js",
+//  "dev": "tsc -w & nodemon dist/index.js"
