@@ -44,6 +44,9 @@ app.post("/", (req, res) => {
   run();
 });
 
+app.get("/home", (req, res) => {
+  res.send("Working");
+});
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
