@@ -44,7 +44,7 @@ const Body: FC<BodyProps> = ({}) => {
             Upload your PDF
           </label>
           <input
-            className="bg-[#374151] w-full rounded-md text-xs lg:text-sm"
+            className="bg-[#374151] w-9/12 lg:w-7/12  rounded-md text-xs lg:text-sm"
             type="file"
             name=""
             id="askk"
