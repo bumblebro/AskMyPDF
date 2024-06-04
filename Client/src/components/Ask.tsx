@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import ContentLoader, { Facebook } from "react-content-loader";
+import ContentLoader from "react-content-loader";
 
 interface AskProps {
   text: string;
@@ -9,7 +9,7 @@ interface AskProps {
 
 const Ask: FC<AskProps> = ({ text }) => {
   const [data, setData] = useState();
-  const [question, setQuestion] = useState();
+  const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
