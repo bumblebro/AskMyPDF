@@ -40,7 +40,7 @@ const Body: FC<BodyProps> = ({}) => {
           Chat with PDF
         </h1>
         <form>
-          <label className="text-xs lg:text-sm" htmlFor="askk">
+          <label className="pb-2 text-xs lg:text-sm" htmlFor="askk">
             Upload your PDF
           </label>
           <input
