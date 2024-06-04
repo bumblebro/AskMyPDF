@@ -21,7 +21,8 @@ app.use("/", (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST");
   res.header("Access-Control-Allow-Headers", "Content-Type");
-  res.header("HTTP/1.1 200 OK");
+  res.header("Access-Control-Max-Age", "86400");
+
   next();
 });
 
@@ -35,6 +36,8 @@ app.post("/", (req, res) => {
     const response = await result.response;
     const text = response.text();
     console.log(text);
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Max-Age", "86400");
     res.status(200).json({ text });
     console.log(payload);
   }
