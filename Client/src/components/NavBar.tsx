@@ -5,10 +5,10 @@ interface NavBarProps {}
 const NavBar: FC<NavBarProps> = ({}) => {
   return (
     <>
-      <div className="font-sans  font-medium flex justify-between px-4 py-4">
-        <div className="text-2xl">
+      <div className="flex items-center justify-between py-4 mx-4 font-sans font-medium lg:mx-10">
+        <div className="text-xl lg:text-2xl">
           {" "}
-          <h1>AskMyPDF 🚀</h1>
+          <h1>AskMyPDF</h1>
         </div>
         <div className="flex gap-2 text-sm">
           {" "}
