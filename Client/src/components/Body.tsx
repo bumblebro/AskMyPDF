@@ -39,12 +39,12 @@ const Body: FC<BodyProps> = ({}) => {
         <h1 className="pb-5 text-2xl font-semibold lg:text-4xl">
           Chat with PDF
         </h1>
-        <div>
+        <form className="flex flex-col">
           <label className="pb-2 text-xs lg:text-sm" htmlFor="askk">
             Upload your PDF
           </label>
           <input
-            className="bg-[#374151] w-full rounded-md text-xs lg:text-sm"
+            className="bg-[#374151]  rounded-md text-xs lg:text-sm"
             type="file"
             name=""
             id="askk"
