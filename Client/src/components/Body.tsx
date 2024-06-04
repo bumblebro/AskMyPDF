@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import Ask from "./Ask";
 import pdfToText from "react-pdftotext";
-import ContentLoader, { Facebook } from "react-content-loader";
+import ContentLoader from "react-content-loader";
 
 interface BodyProps {}
 
@@ -25,7 +25,7 @@ const Body: FC<BodyProps> = ({}) => {
         console.log(text);
         setUploaded(true);
       })
-      .catch((error) => {
+      .catch(() => {
         console.error("Failed to extract text from pdf");
         setLoading(false);
       });
