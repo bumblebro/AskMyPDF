@@ -9,18 +9,13 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// app.use(
-//   cors({
-//     origin: "https://askmypdff.vercel.app",
-//   })
-// );
-
-// const corsOptions = {
-//   origin: "https://askmypdff.vercel.app",
-//   credentials: true, //access-control-allow-credentials:true
-//   optionSuccessStatus: 200,
-// };
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://askmypdff.vercel.app/", // Replace with your web page origin
+    methods: "GET,POST,PUT,DELETE", // Allowed HTTP methods
+    credentials: true, // Allow cookies (if applicable)
+  })
+);
 
 app.post("/", (req, res) => {
   const { payload } = req.body;
