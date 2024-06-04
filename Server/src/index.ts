@@ -16,6 +16,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.post("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Max-Age", "1800");
+  res.setHeader("Access-Control-Allow-Headers", "content-type");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "PUT, POST, GET, DELETE, PATCH, OPTIONS"
+  );
   const { payload } = req.body;
   async function run() {
     // The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
@@ -25,10 +33,6 @@ app.post("/", (req, res) => {
     const response = await result.response;
     const text = response.text();
     console.log(text);
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "X-Requested-With, content-type"
-    );
     res.json({ text });
     console.log(payload);
   }
