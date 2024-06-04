@@ -39,7 +39,7 @@ const Body: FC<BodyProps> = ({}) => {
         <h1 className="pb-5 text-2xl font-semibold lg:text-4xl">
           Chat with PDF
         </h1>
-        <form className="flex flex-col">
+        {/* <form className="flex flex-col">
           <label className="pb-2 text-xs lg:text-sm" htmlFor="askk">
             Upload your PDF
           </label>
@@ -51,14 +51,14 @@ const Body: FC<BodyProps> = ({}) => {
             accept="application/pdf"
             onChange={handleChange}
           />
-        </form>
+        </form> */}
 
-        <div className="max-w-xs mx-auto">
+        <div className="pb-6 mx-auto ">
           <label
             htmlFor="example5"
             className="block mb-1 text-sm font-medium text-gray-700"
           >
-            Upload file
+            Upload your PDF
           </label>
           <label className="flex items-center justify-center w-full p-6 transition-all border-2 border-gray-200 border-dashed rounded-md appearance-none cursor-pointer hover:border-primary-300">
             <div className="space-y-1 text-center">
@@ -91,7 +91,13 @@ const Body: FC<BodyProps> = ({}) => {
                 SVG, PNG, JPG or GIF (max. 800x400px)
               </p>
             </div>
-            <input id="example5" type="file" className="sr-only" />
+            <input
+              id="example5"
+              type="file"
+              className="sr-only"
+              accept="application/pdf"
+              onChange={handleChange}
+            />
           </label>
         </div>
 
