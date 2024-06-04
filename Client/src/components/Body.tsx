@@ -37,14 +37,14 @@ const Body: FC<BodyProps> = ({}) => {
     <div className="px-4 mx-auto lg:w-7/12 pt-14">
       <div className="flex flex-col items-start pb-4">
         <div className="flex ">
-          <h1 className="pb-5 text-4xl font-semibold">Chat with PDF</h1>
+          <h1 className="pb-5 text-xl font-semibold lg:text-4xl">Chat with PDF</h1>
         </div>{" "}
         <form className="flex flex-col items-start w-full gap-2 pb-8">
-          <label className="text-sm " htmlFor="askk">
+          <label className="text-xs lg:text-sm" htmlFor="askk">
             Upload your PDF
           </label>
           <input
-            className="bg-[#374151] w-full rounded-md"
+            className="bg-[#374151] w-full rounded-md text-xs lg:text-sm"
             type="file"
             name=""
             id="askk"
