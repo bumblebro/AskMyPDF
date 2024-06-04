@@ -8,7 +8,11 @@ const genAI = new GoogleGenerativeAI("AIzaSyBNJKA4LlMqZ0MIwf031-abeJqWL3ELjX8");
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://ask-my-pdf-2oec.vercel.app",
+  })
+);
 
 app.post("/", (req, res) => {
   const { payload } = req.body;
