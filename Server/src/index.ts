@@ -20,6 +20,10 @@ app.post("/", (req, res) => {
     const response = await result.response;
     const text = response.text();
     console.log(text);
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "X-Requested-With, content-type"
+    );
     res.json({ text });
     console.log(payload);
   }
