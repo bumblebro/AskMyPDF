@@ -10,7 +10,7 @@ const Body: FC<BodyProps> = ({}) => {
   const [text, setText] = useState("");
   const [uploaded, setUploaded] = useState(false);
 
-  const handleChange = async (e) => {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
     console.log(e.target.files[0].size);
     if (e.target.files[0].size > 2097152) {
