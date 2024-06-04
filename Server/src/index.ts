@@ -15,12 +15,12 @@ app.use(bodyParser.json());
 //   })
 // );
 
-const corsOptions = {
-  origin: "https://askmypdff.vercel.app",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: "https://askmypdff.vercel.app",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+// };
+app.use(cors());
 
 app.post("/", (req, res) => {
   const { payload } = req.body;

@@ -18,6 +18,7 @@ const Ask: FC<AskProps> = ({ text }) => {
     console.log(text);
     setLoading(true);
     const response = await axios.post("https://ask-my-pdf-api.vercel.app/", {
+    // const response = await axios.post("http://localhost:3000/", {
       payload: question + text,
     });
     const data = response.data.text;
