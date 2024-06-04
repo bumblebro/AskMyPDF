@@ -11,24 +11,26 @@ const Body: FC<BodyProps> = ({}) => {
   const [uploaded, setUploaded] = useState(false);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files[0];
-    console.log(e.target.files[0].size);
-    if (e.target.files[0].size > 2097152) {
-      alert("File size is too big");
-      return;
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      console.log(e.target.files[0].size);
+      if (e.target.files[0].size > 2097152) {
+        alert("File size is too big");
+        return;
+      }
+      setLoading(true);
+      await pdfToText(file)
+        .then((text) => {
+          setText(text);
+          setLoading(false);
+          console.log(text);
+          setUploaded(true);
+        })
+        .catch(() => {
+          console.error("Failed to extract text from pdf");
+          setLoading(false);
+        });
     }
-    setLoading(true);
-    await pdfToText(file)
-      .then((text) => {
-        setText(text);
-        setLoading(false);
-        console.log(text);
-        setUploaded(true);
-      })
-      .catch(() => {
-        console.error("Failed to extract text from pdf");
-        setLoading(false);
-      });
   };
 
   return (
