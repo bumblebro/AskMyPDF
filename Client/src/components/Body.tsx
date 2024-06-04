@@ -52,26 +52,49 @@ const Body: FC<BodyProps> = ({}) => {
             onChange={handleChange}
           />
         </form>
-        <form>
+
+        <div className="max-w-xs mx-auto">
           <label
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            htmlFor="file_input"
+            htmlFor="example5"
+            className="block mb-1 text-sm font-medium text-gray-700"
           >
             Upload file
           </label>
-          <input
-            className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            aria-describedby="file_input_help"
-            id="file_input"
-            type="file"
-          />
-          <p
-            className="mt-1 text-sm text-gray-500 dark:text-gray-300"
-            id="file_input_help"
-          >
-            SVG, PNG, JPG or GIF (MAX. 800x400px).
-          </p>
-        </form>
+          <label className="flex items-center justify-center w-full p-6 transition-all border-2 border-gray-200 border-dashed rounded-md appearance-none cursor-pointer hover:border-primary-300">
+            <div className="space-y-1 text-center">
+              <div className="inline-flex items-center justify-center w-10 h-10 mx-auto bg-gray-100 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6 text-gray-500"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                  />
+                </svg>
+              </div>
+              <div className="text-gray-600">
+                <a
+                  href="#"
+                  className="font-medium text-primary-500 hover:text-primary-700"
+                >
+                  Click to upload
+                </a>{" "}
+                or drag and drop
+              </div>
+              <p className="text-sm text-gray-500">
+                SVG, PNG, JPG or GIF (max. 800x400px)
+              </p>
+            </div>
+            <input id="example5" type="file" className="sr-only" />
+          </label>
+        </div>
+
         {loading ? (
           <>
             <ContentLoader
