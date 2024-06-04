@@ -12,7 +12,7 @@ const NavBar: FC<NavBarProps> = ({}) => {
         </div>
         <div className="flex gap-2 text-sm">
           {" "}
-          <h1>Fork</h1>
+       
           <h1>Github</h1>
         </div>
       </div>

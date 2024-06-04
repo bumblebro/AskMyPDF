@@ -34,7 +34,7 @@ const Body: FC<BodyProps> = ({}) => {
   };
 
   return (
-    <div className="w-11/12 mx-auto lg:w-7/12 pt-14">
+    <div className="px-4 mx-auto lg:w-7/12 pt-14">
       <div className="flex flex-col items-start pb-4">
         <div className="flex ">
           <h1 className="pb-5 text-4xl font-semibold">Chat with PDF</h1>
