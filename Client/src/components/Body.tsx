@@ -88,7 +88,7 @@ const Body: FC<BodyProps> = ({}) => {
                 or drag and drop
               </div>
               <p className="text-sm text-gray-500">
-                SVG, PNG, JPG or GIF (max. 800x400px)
+                PDF (max. 800x400px)
               </p>
             </div>
             <input

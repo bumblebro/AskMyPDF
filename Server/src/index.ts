@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "https://ask-my-pdf-five.vercel.app/",
+    origin: "https://askmypdff.vercel.app",
   })
 );
 
