@@ -17,6 +17,13 @@ app.use(
   })
 );
 
+app.use("/", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://askmypdff.vercel.app/");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 app.post("/", (req, res) => {
   const { payload } = req.body;
   async function run() {
