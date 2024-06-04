@@ -32,7 +32,7 @@ app.post("/", (req, res) => {
     const response = await result.response;
     const text = response.text();
     console.log(text);
-    res.json({ text });
+    res.status(200).json({ text });
     console.log(payload);
   }
   run();
