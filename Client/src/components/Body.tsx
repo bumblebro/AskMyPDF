@@ -35,7 +35,7 @@ const Body: FC<BodyProps> = ({}) => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-8/12 pb-4 lg:w-7/12 pt-14">
+      <div className="w-9/12 pb-4 lg:w-7/12 pt-14">
         <h1 className="pb-5 text-2xl font-semibold lg:text-4xl">
           Chat with PDF
         </h1>
