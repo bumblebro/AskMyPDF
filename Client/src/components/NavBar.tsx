@@ -6,7 +6,7 @@ const NavBar: FC<NavBarProps> = ({}) => {
   return (
     <>
       <div className="flex items-center justify-between py-4 mx-4 font-sans font-medium lg:mx-10">
-        <div className="text-xl lg:text-2xl">
+        <div className="lg:text-2xl">
           {" "}
           <h1>AskMyPDF</h1>
         </div>
