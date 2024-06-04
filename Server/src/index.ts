@@ -8,11 +8,12 @@ const genAI = new GoogleGenerativeAI("AIzaSyBNJKA4LlMqZ0MIwf031-abeJqWL3ELjX8");
 const app = express();
 
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: "https://ask-my-pdf-2oec.vercel.app",
-  })
-);
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.post("/", (req, res) => {
   const { payload } = req.body;
