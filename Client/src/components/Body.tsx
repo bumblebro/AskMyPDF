@@ -29,6 +29,7 @@ const Body: FC<BodyProps> = ({}) => {
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
+      console.log(e.target.files[0].size);
       const file = e.target.files[0];
       const allowedExtension = "pdf";
       const fileExtension = getFileExtension(file.name);
@@ -112,7 +113,7 @@ const Body: FC<BodyProps> = ({}) => {
                 or drag and drop
               </div>
               <p className="text-sm text-gray-500">
-                {path ? path : "PDF (max. 800x400px)"}
+                {path ? path : "PDF (Limit 200MB per file)"}
               </p>
             </div>
             <input
