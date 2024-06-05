@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "https://askmypdff.vercel.app", // Replace with your web page origin
+    origin: "*", // Replace with your web page origin
     methods: "GET,POST,PUT,DELETE", // Allowed HTTP methods
     credentials: true, // Allow cookies (if applicable)
   })
@@ -54,3 +54,9 @@ app.listen(3000, () => {
 // "script": "npx tsc",
 //  "start": "node dist/index.js",
 //  "dev": "tsc -w & nodemon dist/index.js"
+
+// "starts": "nodemon src/index.ts",
+//     "build": "rimraf dist && tsc",
+//     "ts.check": "tsc --project tsconfig.json",
+//     "add-build": "git add dist",
+//     "test": "echo \"Error: no test specified\" && exit 1",
