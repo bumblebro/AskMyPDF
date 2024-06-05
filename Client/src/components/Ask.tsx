@@ -61,18 +61,6 @@ const Ask: FC<AskProps> = ({ text }) => {
           </ContentLoader>
         ) : (
           <>
-            <ContentLoader
-              height={140}
-              speed={1}
-              className="w-full h-full "
-              backgroundColor={"#333"}
-              foregroundColor={"#999"}
-              viewBox="0 0 380 70"
-            >
-              <rect x="0" y="0" rx="4" ry="4" width="370" height="10" />
-              <rect x="0" y="15" rx="4" ry="4" width="250" height="10" />
-              <rect x="0" y="30" rx="4" ry="4" width="300" height="10" />
-            </ContentLoader>
             <ReactMarkdown>{data}</ReactMarkdown>
           </>
         )}

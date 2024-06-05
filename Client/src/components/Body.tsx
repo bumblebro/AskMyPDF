@@ -134,16 +134,6 @@ const Body: FC<BodyProps> = ({}) => {
         ) : (
           uploaded && (
             <>
-              <ContentLoader
-                speed={1}
-                backgroundColor={"#333"}
-                foregroundColor={"#999"}
-                viewBox="0 0 380 70"
-              >
-                <rect x="0" y="0" rx="4" ry="4" width="110" height="10" />
-                <rect x="0" y="15" rx="4" ry="4" width="370" height="20" />
-                <rect x="0" y="40" rx="3" ry="3" width="40" height="19" />
-              </ContentLoader>
               <Ask text={text} />
             </>
           )
