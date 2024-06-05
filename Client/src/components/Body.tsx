@@ -39,18 +39,22 @@ const Body: FC<BodyProps> = ({}) => {
         return;
       }
       console.log(e.target.files[0].size);
-      // if (e.target.files[0].size > 2097152) {
-      //   setAlertText("File size is too big");
-      //   displayalert();
-      //   return;
-      // }
-
+      if (e.target.files[0].size > 2097152) {
+        setAlertText("File size is too big");
+        displayalert();
+        return;
+      }
       setPath(file.name);
       console.log(path);
 
       setLoading(true);
       await pdfToText(file)
         .then((text) => {
+          if (text.length == 0) {
+            setAlertText("Upload pdf with text in it!");
+            displayalert();
+            return;
+          }
           setText(text);
           setLoading(false);
           setUploaded(true);
