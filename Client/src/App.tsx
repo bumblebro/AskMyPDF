@@ -7,9 +7,16 @@ interface AppProps {}
 
 const App: FC<AppProps> = ({}) => {
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    setLoading(false);
+    const timer = () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    };
+    timer();
   }, []);
+
   return (
     <div>
       <NavBar />{" "}

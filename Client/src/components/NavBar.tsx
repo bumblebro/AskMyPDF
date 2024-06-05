@@ -17,7 +17,10 @@ const NavBar: FC<NavBarProps> = ({}) => {
             target="_blank"
             rel="noopener"
             title="Github"
+            className="flex items-center justify-center gap-2"
           >
+            {" "}
+            <h1 >Github</h1>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"

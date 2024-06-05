@@ -72,20 +72,6 @@ const Body: FC<BodyProps> = ({}) => {
         <h1 className="pb-5 text-2xl font-semibold lg:text-4xl">
           Chat with PDF
         </h1>
-        {/* <form className="flex flex-col">
-          <label className="pb-2 text-xs lg:text-sm" htmlFor="askk">
-            Upload your PDF
-          </label>
-          <input
-            className="bg-[#374151]  rounded-md text-xs lg:text-sm"
-            type="file"
-            name=""
-            id="askk"
-            accept="application/pdf"
-            onChange={handleChange}
-          />
-        </form> */}
-
         <div className="pb-6 mx-auto ">
           <label
             htmlFor="example5"
@@ -115,9 +101,13 @@ const Body: FC<BodyProps> = ({}) => {
                 </a>{" "}
                 or drag and drop
               </div>
-              <p className="text-sm text-gray-500">
-                {path ? path : "PDF (Limit 200MB per file)"}
-              </p>
+              {path ? (
+                <p className="text-sm text-green-500">{path}</p>
+              ) : (
+                <p className="text-sm text-gray-500">
+                  PDF (Limit 200MB per file)
+                </p>
+              )}
             </div>
             <input
               id="example5"
