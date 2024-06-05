@@ -19,12 +19,9 @@ const Ask: FC<AskProps> = ({ text }) => {
     setLoading(true);
     // const response = await axios.post("https://ask-my-pdf-api.vercel.app/", {
     // const response = await axios.post("https://4641fb45.askmypdff.pages.dev/", {
-    const response = await axios.post(
-      "https://nodejs-serverless-function-express-bice-theta.vercel.app/api/hello/",
-      {
-        payload: question + text,
-      }
-    );
+    const response = await axios.post("http://localhost:3000/", {
+      payload: question + text,
+    });
     const data = response.data.text;
     setLoading(false);
     setData(data);
