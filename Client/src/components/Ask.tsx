@@ -12,15 +12,22 @@ const Ask: FC<AskProps> = ({ text }) => {
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
 
+  function prepareTextForSending(text: string, maxLength = 100000) {
+    // Adjust maxLength as needed
+    const trimmedText = text.trim(); // Remove leading/trailing spaces
+    const limitedText = trimmedText.substring(0, maxLength);
+    return limitedText;
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const trimText = prepareTextForSending(text);
     console.log("Sent");
-    console.log(text);
     setLoading(true);
-    // const response = await axios.post("https://ask-my-pdf-api.vercel.app/", {
-    const response = await axios.post("https://ask-my-pdf-7x79.vercel.app/", {
-      // const response = await axios.post("http://localhost:3000/", {
-      payload: question + text,
+    console.log(question + text);
+    console.log(question + trimText);
+    const response = await axios.post("http://localhost:3000/", {
+      payload: question + trimText,
     });
     const data = response.data.text;
     setLoading(false);

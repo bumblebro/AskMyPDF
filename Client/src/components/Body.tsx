@@ -39,11 +39,11 @@ const Body: FC<BodyProps> = ({}) => {
         return;
       }
       console.log(e.target.files[0].size);
-      if (e.target.files[0].size > 2097152) {
-        setAlertText("File size is too big");
-        displayalert();
-        return;
-      }
+      // if (e.target.files[0].size > 2097152) {
+      //   setAlertText("File size is too big");
+      //   displayalert();
+      //   return;
+      // }
 
       setPath(file.name);
       console.log(path);
@@ -53,7 +53,6 @@ const Body: FC<BodyProps> = ({}) => {
         .then((text) => {
           setText(text);
           setLoading(false);
-          console.log(text);
           setUploaded(true);
         })
         .catch(() => {
