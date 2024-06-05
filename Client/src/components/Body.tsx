@@ -112,7 +112,7 @@ const Body: FC<BodyProps> = ({}) => {
                 or drag and drop
               </div>
               <p className="text-sm text-gray-500">
-                {path ? path : "PDF (Limit 5MB per file)"}
+                {path ? path : "PDF (Limit 200MB per file)"}
               </p>
             </div>
             <input
