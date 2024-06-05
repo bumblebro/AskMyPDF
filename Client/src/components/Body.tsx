@@ -50,7 +50,7 @@ const Body: FC<BodyProps> = ({}) => {
       setLoading(true);
       await pdfToText(file)
         .then((text) => {
-          if (text.length == 0) {
+          if (text.length < 10) {
             setAlertText("Upload pdf with text in it!");
             displayalert();
             return;
@@ -99,7 +99,6 @@ const Body: FC<BodyProps> = ({}) => {
                 >
                   Click to upload
                 </a>{" "}
-                or drag and drop
               </div>
               {path ? (
                 <p className="text-sm text-green-500">{path}</p>
