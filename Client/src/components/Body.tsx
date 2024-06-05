@@ -21,6 +21,7 @@ const Body: FC<BodyProps> = ({}) => {
     const start = () => {
       setTimeout(() => {
         setVisible(false);
+        window.location.reload();
       }, 5000);
     };
     setVisible(true);
@@ -28,18 +29,24 @@ const Body: FC<BodyProps> = ({}) => {
   }
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVisible(false);
+    setPath("");
+    setText("");
+    setAlertText("");
     if (e.target.files && e.target.files.length > 0) {
       console.log(e.target.files[0].size);
       const file = e.target.files[0];
       const allowedExtension = "pdf";
       const fileExtension = getFileExtension(file.name);
       if (fileExtension !== allowedExtension) {
+        setPath("");
         setAlertText("Only PDF files are allowed!");
         displayalert();
         return;
       }
       console.log(e.target.files[0].size);
       if (e.target.files[0].size > 2097152) {
+        setPath("");
         setAlertText("File size is too big");
         displayalert();
         return;
@@ -51,6 +58,7 @@ const Body: FC<BodyProps> = ({}) => {
       await pdfToText(file)
         .then((text) => {
           if (text.length < 10) {
+            setPath("");
             setAlertText("Upload pdf with text in it!");
             displayalert();
             return;
@@ -116,25 +124,15 @@ const Body: FC<BodyProps> = ({}) => {
               onChange={handleChange}
             />
           </label>
-        </div>
-
-        {/* <div className="font-[sans-serif] mx-auto w-full pb-6">
-          <label
-            htmlFor="input"
-            className="block mb-2 text-base font-semibold text-gray-500"
+        </div>{" "}
+        {visible && (
+          <div
+            className="w-full p-2 mb-4 text-sm text-center text-red-300 bg-gray-800 rounded-lg lg:p-4 animate-pulse"
+            role="alert"
           >
-            Upload file
-          </label>
-          <input
-            type="file"
-            id="input"
-            accept="application/pdf"
-            onChange={handleChange}
-            className="w-full text-sm font-semibold text-gray-400 border rounded cursor-pointer bg-[#374151] file:cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100  file:text-gray-500"
-          />
-          <p className="mt-2 text-xs text-gray-400">PDF (max. 800x400px)</p>
-        </div> */}
-
+            {alertText}
+          </div>
+        )}
         {loading ? (
           <>
             <ContentLoader
@@ -156,14 +154,6 @@ const Body: FC<BodyProps> = ({}) => {
           )
         )}
       </div>{" "}
-      {visible && (
-        <div
-          className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-300 bg-gray-800 rounded-lg"
-          role="alert"
-        >
-          {alertText}
-        </div>
-      )}
     </div>
   );
 };
