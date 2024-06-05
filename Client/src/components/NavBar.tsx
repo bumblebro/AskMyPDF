@@ -5,8 +5,8 @@ interface NavBarProps {}
 const NavBar: FC<NavBarProps> = ({}) => {
   return (
     <>
-      <div className="flex items-center justify-between py-4 mx-4 font-semibold lg:mx-10">
-        <div className="lg:text-2xl">
+      <div className="flex items-center justify-between py-4 mx-4 font-semibold md:mx-10">
+        <div className="md:text-2xl">
           {" "}
           <h1>AskMyPDF</h1>
         </div>
@@ -20,7 +20,7 @@ const NavBar: FC<NavBarProps> = ({}) => {
             className="flex items-center justify-center gap-2"
           >
             {" "}
-            <h1 >Github</h1>
+            <h1 className="md:text-xl">Github</h1>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
