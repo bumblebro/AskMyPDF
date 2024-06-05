@@ -53,7 +53,7 @@ const Body: FC<BodyProps> = ({}) => {
           />
         </form> */}
 
-        <div className="pb-6 mx-auto ">
+        {/* <div className="pb-6 mx-auto ">
           <label
             htmlFor="example5"
             className="block mb-1 text-sm font-medium text-gray-700"
@@ -98,6 +98,23 @@ const Body: FC<BodyProps> = ({}) => {
               onChange={handleChange}
             />
           </label>
+        </div> */}
+
+        <div className="font-[sans-serif] mx-auto w-full pb-6">
+          <label
+            htmlFor="input"
+            className="block mb-2 text-base font-semibold text-gray-500"
+          >
+            Upload file
+          </label>
+          <input
+            type="file"
+            id="input"
+            accept="application/pdf"
+            onChange={handleChange}
+            className="w-full text-sm font-semibold text-gray-400 border rounded cursor-pointer bg-[#374151] file:cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100  file:text-gray-500"
+          />
+          <p className="mt-2 text-xs text-gray-400">PDF (max. 800x400px)</p>
         </div>
 
         {loading ? (
