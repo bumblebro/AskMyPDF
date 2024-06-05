@@ -10,13 +10,37 @@ const Body: FC<BodyProps> = ({}) => {
   const [text, setText] = useState("");
   const [uploaded, setUploaded] = useState(false);
   const [path, setPath] = useState<string>();
+  const [visible, setVisible] = useState(false);
+  const [alertText, setAlertText] = useState("");
+
+  function getFileExtension(fileName: string) {
+    const parts = fileName.split(".");
+    return parts[parts.length - 1];
+  }
+  function displayalert() {
+    const start = () => {
+      setTimeout(() => {
+        setVisible(false);
+      }, 5000);
+    };
+    setVisible(true);
+    start();
+  }
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
+      const allowedExtension = "pdf";
+      const fileExtension = getFileExtension(file.name);
+      if (fileExtension !== allowedExtension) {
+        setAlertText("Only PDF files are allowed!");
+        displayalert();
+        return;
+      }
       console.log(e.target.files[0].size);
       if (e.target.files[0].size > 2097152) {
-        alert("File size is too big");
+        setAlertText("File size is too big");
+        displayalert();
         return;
       }
 
@@ -138,7 +162,15 @@ const Body: FC<BodyProps> = ({}) => {
             </>
           )
         )}
-      </div>
+      </div>{" "}
+      {visible && (
+        <div
+          className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-300 bg-gray-800 rounded-lg"
+          role="alert"
+        >
+          {alertText}
+        </div>
+      )}
     </div>
   );
 };
