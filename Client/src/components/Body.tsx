@@ -9,6 +9,7 @@ const Body: FC<BodyProps> = ({}) => {
   const [loading, setLoading] = useState(false);
   const [text, setText] = useState("");
   const [uploaded, setUploaded] = useState(false);
+  const [path, setPath] = useState<string>();
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -18,6 +19,10 @@ const Body: FC<BodyProps> = ({}) => {
         alert("File size is too big");
         return;
       }
+
+      setPath(file.name);
+      console.log(path);
+
       setLoading(true);
       await pdfToText(file)
         .then((text) => {
@@ -53,7 +58,7 @@ const Body: FC<BodyProps> = ({}) => {
           />
         </form> */}
 
-        {/* <div className="pb-6 mx-auto ">
+        <div className="pb-6 mx-auto ">
           <label
             htmlFor="example5"
             className="block mb-1 text-sm font-medium text-gray-700"
@@ -67,14 +72,10 @@ const Body: FC<BodyProps> = ({}) => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="#6a7280"
                   viewBox="0 0 24 24"
-                 
                   stroke="currentColor"
                   className="w-6 h-6 text-gray-500 bg-gray-500"
                 >
-                  <path
-                
-                    d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
-                  />
+                  <path d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
                 </svg>
               </div>
               <div className="text-gray-600">
@@ -87,7 +88,7 @@ const Body: FC<BodyProps> = ({}) => {
                 or drag and drop
               </div>
               <p className="text-sm text-gray-500">
-                PDF (max. 800x400px)
+                {path ? path : "PDF (max. 800x400px)"}
               </p>
             </div>
             <input
@@ -98,9 +99,9 @@ const Body: FC<BodyProps> = ({}) => {
               onChange={handleChange}
             />
           </label>
-        </div> */}
+        </div>
 
-        <div className="font-[sans-serif] mx-auto w-full pb-6">
+        {/* <div className="font-[sans-serif] mx-auto w-full pb-6">
           <label
             htmlFor="input"
             className="block mb-2 text-base font-semibold text-gray-500"
@@ -115,7 +116,7 @@ const Body: FC<BodyProps> = ({}) => {
             className="w-full text-sm font-semibold text-gray-400 border rounded cursor-pointer bg-[#374151] file:cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100  file:text-gray-500"
           />
           <p className="mt-2 text-xs text-gray-400">PDF (max. 800x400px)</p>
-        </div>
+        </div> */}
 
         {loading ? (
           <>
@@ -131,7 +132,21 @@ const Body: FC<BodyProps> = ({}) => {
             </ContentLoader>
           </>
         ) : (
-          uploaded && <Ask text={text} />
+          uploaded && (
+            <>
+              <ContentLoader
+                speed={1}
+                backgroundColor={"#333"}
+                foregroundColor={"#999"}
+                viewBox="0 0 380 70"
+              >
+                <rect x="0" y="0" rx="4" ry="4" width="110" height="10" />
+                <rect x="0" y="15" rx="4" ry="4" width="370" height="20" />
+                <rect x="0" y="40" rx="3" ry="3" width="40" height="19" />
+              </ContentLoader>
+              <Ask text={text} />
+            </>
+          )
         )}
       </div>
     </div>
