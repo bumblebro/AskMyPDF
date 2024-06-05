@@ -21,7 +21,7 @@ const App: FC<AppProps> = ({}) => {
     <div>
       <NavBar />{" "}
       {loading ? (
-        <div className="w-9/12 pb-4 mx-auto lg:w-7/12 pt-14">
+        <div className="w-10/12 pb-4 mx-auto lg:w-7/12 pt-14">
           <ContentLoader
             speed={1}
             backgroundColor={"#333"}
