@@ -47,7 +47,7 @@ const Body: FC<BodyProps> = ({}) => {
       console.log(e.target.files[0].size);
       if (e.target.files[0].size > 2097152) {
         setPath("");
-        setAlertText("File size is too big");
+        setAlertText("File size is too big for processing");
         displayalert();
         return;
       }
@@ -57,19 +57,22 @@ const Body: FC<BodyProps> = ({}) => {
       setLoading(true);
       await pdfToText(file)
         .then((text) => {
+          setLoading(false);
           if (text.length < 10) {
             setPath("");
-            setAlertText("Upload pdf with text in it!");
+            setAlertText("Not enough text found in the PDF for processing");
             displayalert();
             return;
           }
           setText(text);
-          setLoading(false);
           setUploaded(true);
         })
         .catch(() => {
-          console.error("Failed to extract text from pdf");
           setLoading(false);
+          console.error("Failed to extract text from PDF");
+          setAlertText("Failed to extract text from PDF");
+          displayalert();
+          return;
         });
     }
   };
@@ -127,7 +130,7 @@ const Body: FC<BodyProps> = ({}) => {
         </div>{" "}
         {visible && (
           <div
-            className="w-full p-2 mb-4 text-sm text-center text-red-300 bg-gray-800 rounded-lg lg:p-4 animate-pulse"
+            className="w-full p-2 mb-4 text-sm text-center rounded-lg bg-[#3e2328] text-[#f1d1d1] lg:p-4 animate-pulse"
             role="alert"
           >
             {alertText}
